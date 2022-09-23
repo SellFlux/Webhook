@@ -65,6 +65,6 @@ Tipo de pagamentos Disponíveis para você.
   "product_name": "Exemplo de produto",
   "transaction_value": "299",
   "tags": ["gerou-boleto", "comprou-produto"],
-  "transaction_value": ["pagamento-expirado", "sair"]
+  "remove_tags": ["pagamento-expirado", "sair"]
 }
 ```
