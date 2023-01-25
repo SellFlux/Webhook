@@ -16,10 +16,10 @@ O metodo é do tipo POST e os dados devem ser passado em formato Content-Type: a
 | gateway           | 'sellflux'                          | Nome da sua plataforma                           |
 | transaction_id    | '123456'                            | Id da transação, este id da transação é `único`. |
 | status            | 'cancelado'                         | O status da sua compra                           |
-| payment_date      | '01/01/2001'                        | Data que foi pago a compra                       |
+| payment_date      | '2023-01-25 09:06:50.641815-03'     | Data que foi pago a compra                       |
 | url               | 'https://www.exemplo.com'           | Link do boleto ou pix da compra                  |
 | payment_method    | 'cartao-credito'                    | Método de pagamento utilizado na compra          |
-| expiration_date   | '02/02/2002'                        | Data de expiração do pagamento                   |
+| expiration_date   | '2023-01-25 09:06:50.641815-03'     | Data de expiração do pagamento                   |
 | product_id        | '12345'                             | Id do produto vendido                            |
 | product_name      | 'Exemplo de produto'                | Nome do produto                                  |
 | transaction_value | '299'                               | Valor da compra                                  |
@@ -57,10 +57,10 @@ Tipo de pagamentos Disponíveis para você.
   "gateway": "sellflux",
   "transaction_id": "123456",
   "status": "cancelado",
-  "payment_date": "01/01/2001",
+  "payment_date": "2023-01-25 09:06:50.641815-03",
   "url": "https://www.exemplo.com",
   "payment_method": "cartao-credito",
-  "expiration_date": "02/02/2002",
+  "expiration_date": "2023-01-25 09:06:50.641815-03",
   "product_id": "12345",
   "product_name": "Exemplo de produto",
   "transaction_value": "299",
