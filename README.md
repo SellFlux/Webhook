@@ -1,15 +1,15 @@
-## Documentação Webhook Sellflux.
+## Documentação do Webhook do Sellflux.
 
 ​
 Uma maneira fácil de integrar sua aplicação com o nosso sistema de automação.
 ​
 
-### Propriedade (Verifique na tabela abaixo os tipos aceito)
+### Propriedade (Verifique na tabela abaixo os tipos aceitos e possíveis valores)
 
 ​
 Propriedades que você deve passar.
 ​
-O metodo é do tipo POST e os dados devem ser passado em formato Content-Type: application/json.
+O metodo é do tipo POST e os dados devem ser passados em formato Content-Type: application/json.
 ​
 | status | Exemplo | Descrição |
 | ----------------- | ----------------------------------- | ------------------------------------------------ |
@@ -18,6 +18,7 @@ O metodo é do tipo POST e os dados devem ser passado em formato Content-Type: a
 | phone | '(99) 99999-9999' | Telefone do lead |
 | gateway | 'sellflux' | Nome da sua plataforma |
 | transaction_id | 123456 | Id da transação, este id da transação é `único`. |
+| offer_id | '123' | Id da oferta |
 | status | 'cancelado' | O status da sua compra |
 | payment_date | '2023-01-25 09:06:50.641815-03' | Data que foi pago a compra |
 | url | 'https://www.exemplo.com' | Link do boleto ou pix da compra |
@@ -26,6 +27,7 @@ O metodo é do tipo POST e os dados devem ser passado em formato Content-Type: a
 | product_id | '12345' | Id do produto vendido |
 | product_name | 'Exemplo de produto' | Nome do produto |
 | transaction_value | '299' | Valor da compra |
+| ip | '111.111.11.111' | IP do lead que realizou o cadastro/compra |
 | tags | ['gerou-boleto', 'comprou-produto'] | Tags para adicionar aos leads |
 | remove_tags | ['pagamento-expirado', 'sair'] | Tags para remover dos leads |
 ​
@@ -66,6 +68,7 @@ Tipo de pagamentos Disponíveis para você.
   "phone": "(99) 99999-9999",
   "gateway": "sellflux",
   "transaction_id": 123456,
+  "offer_id": "123",
   "status": "cancelado",
   "payment_date": "2023-01-25 09:06:50.641815-03",
   "url": "https://www.exemplo.com",
@@ -74,6 +77,7 @@ Tipo de pagamentos Disponíveis para você.
   "product_id": "12345",
   "product_name": "Exemplo de produto",
   "transaction_value": "299",
+  "ip": "111.111.11.111"
   "tags": ["gerou-boleto", "comprou-produto"],
   "remove_tags": ["pagamento-expirado", "sair"]
 }
