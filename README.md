@@ -34,6 +34,7 @@ O JSON enviado deve conter as seguintes propriedades, com os seus respectivos va
 | ip               | String                | "111.111.11.111"                    | IP do lead.                                                 |
 | tags             | Array (String)        | ["gerou-boleto", "comprou-produto"] | Tags que devem ser adicionadas ao lead.                     |
 | remove_tags      | Array (String)        | ["pagamento-expirado", "sair"]      | Tags que devem ser removidas do lead.                       |
+| currency         | String                | "brl"                               | Tipo da moeda (Real, Dólar, etc...)                         |
 
 ### Tipos de Pagamentos
 
@@ -58,6 +59,21 @@ Os status das transações compreendem:
 | aguardando-pagamento| Esperando conclusão do pagamento        |
 | abandonou-carrinho  | Carrinho abandonado pelo comprador      |
 
+### Tipos de moedas aceitos
+
+Os tipos de moedas compreendem:
+
+| Sigla               | Localidade                              |
+|---------------------|-----------------------------------------|
+| USD                 | Dólar Americano                         |
+| EUR                 | Euro                                    |
+| GBP                 | Libra esterlina                         |
+| JPY                 | Iene                                    |
+| AUD                 | Dólar Australiano                       |
+| CHF                 | Franco Suíço                            |
+| CAD                 | Dólar Canadense                         |
+| CNY                 | Renminbi (Yuan)                         |
+
 ### Exemplo de Payload JSON
 
 ```json
@@ -78,7 +94,8 @@ Os status das transações compreendem:
   "transaction_value": "299",
   "ip": "111.111.11.111",
   "tags": ["gerou-boleto", "comprou-produto"],
-  "remove_tags": ["pagamento-expirado", "sair"]
+  "remove_tags": ["pagamento-expirado", "sair"],
+  "currency": "brl"
 }
 ```
 
