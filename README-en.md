@@ -36,11 +36,11 @@ The method is of the type POST and the data must be passed in format Content-Typ
 | shipping_company | 'Correios' | Shipping company/carrier |
 | tracking_id | 'TR123456' | Tracking identifier |
 | external_id | 'EXT-789' | External tracking identifier |
+| tracking_status | 'em-transporte' | Tracking status (e.g. enviado, entregue, etc.) |
 | tracking | 'BR123456789BR' | Shipment tracking code |
 | tracking_url | 'https://tracking.example.com/BR123' | URL to track the shipment |
 | trail_date | '2023-01-25 09:06:50.641815-03' | Tracking/shipping date |
 | shipping_method | 'sedex' | Shipping method used |
-| product_ids | ['12345', '67890'] | Product IDs associated with the tracking |
 ​
 
 ### `add` Field Structure
@@ -50,7 +50,7 @@ The `add` field is an optional object that may contain additional transaction in
 | Field | Example | Description |
 | ----------------- | ----------------------------------- | ---------------------------------------------- |
 | address | 'Rua Exemplo, 123' | Address associated with the transaction |
-| price_discount | 15.50 | Discount amount applied to the transaction |
+| price_discount | 50.00 | Discount amount applied to the transaction |
 
 > **Note:** The `add` field accepts additional properties beyond those listed above.
 
@@ -126,14 +126,14 @@ Types of payments available to you.
   "expiration_date": "2023-01-25 09:06:50.641815-03",
   "product_id": "12345",
   "product_name": "example product",
-  "transaction_value": "299",
+  "transaction_value": "249",
   "ip": "111.111.11.111",
   "tags": ["gerou-boleto", "comprou-produto"],
   "remove_tags": ["pagamento-expirado", "sair"],
   "currency": "brl",
   "add": {
     "address": "123 Example Street",
-    "price_discount": 15.50
+    "price_discount": 50.00
   },
   "itens": [
     {
@@ -150,10 +150,10 @@ Types of payments available to you.
   "shipping_company": "Correios",
   "tracking_id": "TR123456",
   "external_id": "EXT-789",
+  "tracking_status": "em-transporte",
   "tracking": "BR123456789BR",
   "tracking_url": "https://tracking.example.com/BR123",
   "trail_date": "2023-01-25 09:06:50.641815-03",
-  "shipping_method": "sedex",
-  "product_ids": ["12345", "67890"]
+  "shipping_method": "sedex"
 }
 ```

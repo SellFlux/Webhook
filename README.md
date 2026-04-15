@@ -40,11 +40,11 @@ O JSON enviado deve conter as seguintes propriedades, com os seus respectivos va
 | shipping_company | String                | "Correios"                          | Empresa de envio/transportadora.                            |
 | tracking_id      | String                | "TR123456"                          | Identificador do rastreamento.                              |
 | external_id      | String                | "EXT-789"                           | Identificador externo do rastreamento.                      |
+| tracking_status  | String                | "em-transporte"                     | Status do rastreamento (ex: enviado, entregue, etc.).       |
 | tracking         | String                | "BR123456789BR"                     | Código de rastreamento do envio.                            |
 | tracking_url     | String                | "https://rastreio.exemplo.com/BR123"| URL para acompanhar o rastreamento.                         |
 | trail_date       | DateTime (String)     | "2023-01-25T09:06:50.641815-03"     | Data do rastreamento/envio.                                 |
 | shipping_method  | String                | "sedex"                             | Método de envio utilizado.                                  |
-| product_ids      | Array (String)        | ["12345", "67890"]                  | IDs dos produtos associados ao rastreamento.                |
 
 ### Estrutura do campo `add`
 
@@ -53,7 +53,7 @@ O campo `add` é um objeto opcional que pode conter informações adicionais da 
 | Campo            | Tipo                  | Exemplo                             | Descrição                                                   |
 |------------------|-----------------------|-------------------------------------|-------------------------------------------------------------|
 | address          | String                | "Rua Exemplo, 123"                  | Endereço associado à transação.                             |
-| price_discount   | Number                | 15.50                               | Valor de desconto aplicado na transação.                    |
+| price_discount   | Number                | 50.00                               | Valor de desconto aplicado na transação.                    |
 
 > **Nota:** O campo `add` aceita propriedades adicionais além das listadas acima.
 
@@ -127,14 +127,14 @@ Os tipos de moedas compreendem:
   "expiration_date": "2023-01-25T09:06:50.641815-03",
   "product_id": "12345",
   "product_name": "Exemplo de produto",
-  "transaction_value": "299",
+  "transaction_value": "249",
   "ip": "111.111.11.111",
   "tags": ["gerou-boleto", "comprou-produto"],
   "remove_tags": ["pagamento-expirado", "sair"],
   "currency": "brl",
   "add": {
     "address": "Rua Exemplo, 123",
-    "price_discount": 15.50
+    "price_discount": 50.00
   },
   "itens": [
     {
@@ -151,11 +151,11 @@ Os tipos de moedas compreendem:
   "shipping_company": "Correios",
   "tracking_id": "TR123456",
   "external_id": "EXT-789",
+  "tracking_status": "em-transporte",
   "tracking": "BR123456789BR",
   "tracking_url": "https://rastreio.exemplo.com/BR123",
   "trail_date": "2023-01-25T09:06:50.641815-03",
-  "shipping_method": "sedex",
-  "product_ids": ["12345", "67890"]
+  "shipping_method": "sedex"
 }
 ```
 
