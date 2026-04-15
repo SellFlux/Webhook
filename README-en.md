@@ -33,6 +33,14 @@ The method is of the type POST and the data must be passed in format Content-Typ
 | currency | 'brl' | Currency type (USD, EUR, BRL, etc.) |
 | add | (see structure below) | Additional transaction data (address, discount, etc.) |
 | itens | (see structure below) | List of transaction items |
+| shipping_company | 'Correios' | Shipping company/carrier |
+| tracking_id | 'TR123456' | Tracking identifier |
+| external_id | 'EXT-789' | External tracking identifier |
+| tracking | 'BR123456789BR' | Shipment tracking code |
+| tracking_url | 'https://tracking.example.com/BR123' | URL to track the shipment |
+| trail_date | '2023-01-25 09:06:50.641815-03' | Tracking/shipping date |
+| shipping_method | 'sedex' | Shipping method used |
+| product_ids | ['12345', '67890'] | Product IDs associated with the tracking |
 ​
 
 ### `add` Field Structure
@@ -138,6 +146,14 @@ Types of payments available to you.
       "image": "https://www.example.com/img.jpg",
       "discount": 0
     }
-  ]
+  ],
+  "shipping_company": "Correios",
+  "tracking_id": "TR123456",
+  "external_id": "EXT-789",
+  "tracking": "BR123456789BR",
+  "tracking_url": "https://tracking.example.com/BR123",
+  "trail_date": "2023-01-25 09:06:50.641815-03",
+  "shipping_method": "sedex",
+  "product_ids": ["12345", "67890"]
 }
 ```

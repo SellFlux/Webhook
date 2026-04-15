@@ -37,6 +37,14 @@ O JSON enviado deve conter as seguintes propriedades, com os seus respectivos va
 | currency         | String                | "brl"                               | Tipo da moeda (Real, Dólar, etc...)                         |
 | add              | Object                | (veja estrutura abaixo)             | Dados adicionais da transação (endereço, desconto, etc.).   |
 | itens            | Array (Object)        | (veja estrutura abaixo)             | Lista de itens da transação.                                |
+| shipping_company | String                | "Correios"                          | Empresa de envio/transportadora.                            |
+| tracking_id      | String                | "TR123456"                          | Identificador do rastreamento.                              |
+| external_id      | String                | "EXT-789"                           | Identificador externo do rastreamento.                      |
+| tracking         | String                | "BR123456789BR"                     | Código de rastreamento do envio.                            |
+| tracking_url     | String                | "https://rastreio.exemplo.com/BR123"| URL para acompanhar o rastreamento.                         |
+| trail_date       | DateTime (String)     | "2023-01-25T09:06:50.641815-03"     | Data do rastreamento/envio.                                 |
+| shipping_method  | String                | "sedex"                             | Método de envio utilizado.                                  |
+| product_ids      | Array (String)        | ["12345", "67890"]                  | IDs dos produtos associados ao rastreamento.                |
 
 ### Estrutura do campo `add`
 
@@ -139,7 +147,15 @@ Os tipos de moedas compreendem:
       "image": "https://www.exemplo.com/img.jpg",
       "discount": 0
     }
-  ]
+  ],
+  "shipping_company": "Correios",
+  "tracking_id": "TR123456",
+  "external_id": "EXT-789",
+  "tracking": "BR123456789BR",
+  "tracking_url": "https://rastreio.exemplo.com/BR123",
+  "trail_date": "2023-01-25T09:06:50.641815-03",
+  "shipping_method": "sedex",
+  "product_ids": ["12345", "67890"]
 }
 ```
 
