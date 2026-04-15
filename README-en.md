@@ -28,7 +28,38 @@ The method is of the type POST and the data must be passed in format Content-Typ
 | transaction_value | '299' | Purchase amount/Purchase value |
 | tags | ['gerou-boleto', 'comprou-produto'] | Tags to add to the leads |
 | remove_tags | ['pagamento-expirado', 'sair'] | Tags to remove from the leads |
+| offer_id | '123' | Offer identifier |
+| ip | '111.111.11.111' | Lead's IP address |
+| currency | 'brl' | Currency type (USD, EUR, BRL, etc.) |
+| add | (see structure below) | Additional transaction data (address, discount, etc.) |
+| itens | (see structure below) | List of transaction items |
 ​
+
+### `add` Field Structure
+
+The `add` field is an optional object that may contain additional transaction information:
+
+| Field | Example | Description |
+| ----------------- | ----------------------------------- | ---------------------------------------------- |
+| address | 'Rua Exemplo, 123' | Address associated with the transaction |
+| price_discount | 15.50 | Discount amount applied to the transaction |
+
+> **Note:** The `add` field accepts additional properties beyond those listed above.
+
+### `itens` Field Structure
+
+The `itens` field is an optional array of objects representing the transaction items:
+
+| Field | Example | Description |
+| ----------------- | ----------------------------------- | ---------------------------------------------- |
+| id | 'item-001' | Item identifier |
+| name | 'Example Product' | Item name |
+| quantity | 2 | Item quantity |
+| price | 49.90 | Item unit price |
+| value | 99.80 | Item total value (price x quantity) |
+| offset | 0 | Item offset |
+| image | 'https://example.com/img.jpg' | Item image URL |
+| discount | 5.00 | Discount amount applied to the item |
 
 ### Types of Payments
 
@@ -55,6 +86,19 @@ Types of payments available to you.
 | abandonou-carrinho | Lost Cart | Abandoned cart |
 ​
 
+### Accepted Currency Types
+
+| Code | Currency |
+| ---- | -------- |
+| USD | US Dollar |
+| EUR | Euro |
+| GBP | British Pound |
+| JPY | Japanese Yen |
+| AUD | Australian Dollar |
+| CHF | Swiss Franc |
+| CAD | Canadian Dollar |
+| CNY | Chinese Yuan (Renminbi) |
+
 ### Example JSON
 
 ​
@@ -66,6 +110,7 @@ Types of payments available to you.
   "phone": "(99) 99999-9999",
   "gateway": "sellflux",
   "transaction_id": 123456,
+  "offer_id": "123",
   "status": "cancelado",
   "payment_date": "2023-01-25 09:06:50.641815-03",
   "url": "https://www.example.com",
@@ -74,7 +119,25 @@ Types of payments available to you.
   "product_id": "12345",
   "product_name": "example product",
   "transaction_value": "299",
+  "ip": "111.111.11.111",
   "tags": ["gerou-boleto", "comprou-produto"],
-  "remove_tags": ["pagamento-expirado", "sair"]
+  "remove_tags": ["pagamento-expirado", "sair"],
+  "currency": "brl",
+  "add": {
+    "address": "123 Example Street",
+    "price_discount": 15.50
+  },
+  "itens": [
+    {
+      "id": "item-001",
+      "name": "Example product",
+      "quantity": 1,
+      "price": 299,
+      "value": 299,
+      "offset": 0,
+      "image": "https://www.example.com/img.jpg",
+      "discount": 0
+    }
+  ]
 }
 ```

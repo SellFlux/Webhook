@@ -35,6 +35,34 @@ O JSON enviado deve conter as seguintes propriedades, com os seus respectivos va
 | tags             | Array (String)        | ["gerou-boleto", "comprou-produto"] | Tags que devem ser adicionadas ao lead.                     |
 | remove_tags      | Array (String)        | ["pagamento-expirado", "sair"]      | Tags que devem ser removidas do lead.                       |
 | currency         | String                | "brl"                               | Tipo da moeda (Real, Dólar, etc...)                         |
+| add              | Object                | (veja estrutura abaixo)             | Dados adicionais da transação (endereço, desconto, etc.).   |
+| itens            | Array (Object)        | (veja estrutura abaixo)             | Lista de itens da transação.                                |
+
+### Estrutura do campo `add`
+
+O campo `add` é um objeto opcional que pode conter informações adicionais da transação:
+
+| Campo            | Tipo                  | Exemplo                             | Descrição                                                   |
+|------------------|-----------------------|-------------------------------------|-------------------------------------------------------------|
+| address          | String                | "Rua Exemplo, 123"                  | Endereço associado à transação.                             |
+| price_discount   | Number                | 15.50                               | Valor de desconto aplicado na transação.                    |
+
+> **Nota:** O campo `add` aceita propriedades adicionais além das listadas acima.
+
+### Estrutura do campo `itens`
+
+O campo `itens` é um array opcional de objetos representando os itens da transação:
+
+| Campo            | Tipo                  | Exemplo                             | Descrição                                                   |
+|------------------|-----------------------|-------------------------------------|-------------------------------------------------------------|
+| id               | String                | "item-001"                          | Identificador do item.                                      |
+| name             | String                | "Camiseta XYZ"                      | Nome do item.                                               |
+| quantity         | Number                | 2                                   | Quantidade do item.                                         |
+| price            | Number                | 49.90                               | Preço unitário do item.                                     |
+| value            | Number                | 99.80                               | Valor total do item (preço x quantidade).                   |
+| offset           | Number                | 0                                   | Offset do item.                                             |
+| image            | String                | "https://exemplo.com/img.jpg"       | URL da imagem do item.                                      |
+| discount         | Number                | 5.00                                | Valor de desconto aplicado ao item.                         |
 
 ### Tipos de Pagamentos
 
@@ -95,7 +123,23 @@ Os tipos de moedas compreendem:
   "ip": "111.111.11.111",
   "tags": ["gerou-boleto", "comprou-produto"],
   "remove_tags": ["pagamento-expirado", "sair"],
-  "currency": "brl"
+  "currency": "brl",
+  "add": {
+    "address": "Rua Exemplo, 123",
+    "price_discount": 15.50
+  },
+  "itens": [
+    {
+      "id": "item-001",
+      "name": "Exemplo de produto",
+      "quantity": 1,
+      "price": 299,
+      "value": 299,
+      "offset": 0,
+      "image": "https://www.exemplo.com/img.jpg",
+      "discount": 0
+    }
+  ]
 }
 ```
 
